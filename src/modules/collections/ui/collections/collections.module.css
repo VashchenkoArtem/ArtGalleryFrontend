@@ -1,0 +1,12 @@
+.collectionsContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.collections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(18px, 2vw, 24px);
+    max-width: 70vw;
+}

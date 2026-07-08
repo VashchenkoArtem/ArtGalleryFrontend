@@ -1,0 +1,18 @@
+.collection {
+    position: relative;
+    width: 328px;
+}
+
+.collectionImage {
+    width: 328px;
+    height: 180px;
+    display: block;
+}
+
+.collectionTitle {
+    position: absolute;
+    bottom: clamp(14px, 2vw, 18px);
+    left: clamp(14px, 2vw, 18px);
+    color: white;
+    font-size: 24px;
+}
