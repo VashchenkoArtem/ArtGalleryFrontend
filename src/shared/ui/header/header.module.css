@@ -1,0 +1,27 @@
+.headerWrapper{
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-bg-header);
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-md);
+    width: 100%;
+    max-width: 2440px;
+    
+}
+.headerLogo{
+    height: 2.3rem
+}
+.navUrls{
+    display: flex;
+    align-items: center;
+    gap: var(--space-md)
+}
+.url{
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-size: var(--fs-nav);
+    font-family: var(--font-walsheim-regular);
+}

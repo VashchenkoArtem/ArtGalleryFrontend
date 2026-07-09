@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.rootContainer{
+    position: relative;
+}
+.backgroundImage{
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+.children{
+    position: relative;
+    z-index: 0;
+}

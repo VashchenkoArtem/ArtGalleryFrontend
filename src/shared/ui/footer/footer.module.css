@@ -1,0 +1,16 @@
+.footerWrapper{
+    background-color: var(--color-bg-footer);
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-xs);
+    max-width: 2440px;
+}
+
+.footerText{
+    color: var(--color-text-primary);
+    font-size: var(--fs-footer);
+    font-family: var(--font-footer);
+    font-weight: 400;
+}
