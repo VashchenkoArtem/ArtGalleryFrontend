@@ -1,0 +1,26 @@
+.button{
+    border-radius: 123px;
+    padding: var(--space-xs) var(--space-md);
+    border: none;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+}
+.button:hover{
+    cursor: pointer;
+}
+.grey{
+    background-color: var(--color-button-bg);
+    color: var(--color-text-button);
+}
+.white{
+    border: 0.05rem solid #C1C1C1;
+    color: #A198A0;
+    padding: var(--space-3xs) var(--space-sm);
+    box-shadow: none;
+}
+.yellow{
+    background-color: #E0BD69;
+    color: #3A3F43;
+    padding: var(--space-3xs) var(--space-sm);
+}

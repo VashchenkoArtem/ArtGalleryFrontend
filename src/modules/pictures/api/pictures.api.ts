@@ -14,7 +14,7 @@ export const picturesApi = baseApi.injectEndpoints({
                     params.set("page", String(page))
                 }
                 return {
-                    url: `/pictures/${params.toString()}`
+                    url: `/pictures?${params.toString()}`
                 }
             }
         }),

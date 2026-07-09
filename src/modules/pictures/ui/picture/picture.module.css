@@ -1,0 +1,16 @@
+.picture {
+    flex: 0 0 calc((100% - 64px) / 5);
+}
+
+.pictureImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.4rem;
+}
+.pictureTitle{
+    font-family: var(--font-walsheim-light);
+    font-size: var(--fs-gallery-caption);
+    font-weight: 300;
+    color: var(--color-text-dark);
+}

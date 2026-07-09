@@ -1,0 +1,13 @@
+.pictures {
+    display: flex;
+    justify-content: center;
+
+    gap: 16px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    width: calc(100% + var(--space-xl) * 2);
+    margin-left: calc(var(--space-xl) * -1);
+    margin-right: calc(var(--space-xl) * -1);
+}
+

@@ -1,12 +1,12 @@
 .collection {
     position: relative;
-    width: 328px;
+    width: 30%;
 }
 
 .collectionImage {
-    width: 328px;
-    height: 180px;
+    /* width: 100%; */
     display: block;
+    border-radius: var(--space-3xs);
 }
 
 .collectionTitle {

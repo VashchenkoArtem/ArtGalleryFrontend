@@ -8,6 +8,7 @@ export function Collections(){
     if (!collections) return null
     return (
         <div className={styles.collectionsContainer}>
+            <h1 className={styles.title}>Колекції</h1>
             <div className={styles.collections}>
                 { collections.map((collection) => (<Collection collection={collection} />)) }
             </div>
