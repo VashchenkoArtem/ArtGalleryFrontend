@@ -1,12 +1,36 @@
 .collection {
     position: relative;
-    width: 30%;
+    flex: 0 0 clamp(220px, 30%, 400px);
+    overflow: hidden;
+    border-radius: var(--space-3xs);
+    cursor: pointer;
 }
 
 .collectionImage {
-    /* width: 100%; */
+    width: 100%;
+    aspect-ratio: 328 / 180;
+    object-fit: cover;
     display: block;
     border-radius: var(--space-3xs);
+    transition: transform 0.4s ease;
+}
+
+.collection:hover .collectionImage {
+    transform: scale(1.08);
+}
+
+.collection::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 55%);
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.collection:hover::after {
+    opacity: 1;
 }
 
 .collectionTitle {
@@ -17,4 +41,18 @@
     font-size: var(--fs-nav);
     font-weight: 400;
     font-family: var(--font-walsheim-light);
+    transition: transform 0.4s ease;
+    z-index: 1;
+}
+
+.collection:hover .collectionTitle {
+    transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .collectionImage,
+    .collectionTitle,
+    .collection::after {
+        transition: none;
+    }
 }

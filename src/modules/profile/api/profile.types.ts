@@ -1,5 +1,5 @@
 export interface UpdateUserPayload{
     name?: string;
     email?: string;
-    avatar?: string;
+    avatar?: File;
 }

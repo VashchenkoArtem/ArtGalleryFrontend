@@ -1,5 +1,5 @@
 .picture {
-    flex: 0 0 calc((100% - 64px) / 5);
+    flex: 0 0 clamp(9.5rem, 18vw, 12.5rem);
 }
 
 .pictureImage {

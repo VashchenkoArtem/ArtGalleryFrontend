@@ -10,7 +10,7 @@ export function Collections(){
         <div className={styles.collectionsContainer}>
             <h1 className={styles.title}>Колекції</h1>
             <div className={styles.collections}>
-                { collections.map((collection) => (<Collection collection={collection} />)) }
+                { collections.map((collection) => (<Collection key={collection.id} collection={collection} />)) }
             </div>
         </div>
     )

@@ -1,0 +1,15 @@
+.input{
+    height: 42px;
+    border-radius: 0.4rem;
+    font-size: 1.2rem;
+    border: none;
+}
+.light::placeholder{
+    color: #8D979E;
+    font-family: var(--font-walsheim-light);
+}
+.light{
+    padding: var(--space-xs) var(--space-sm);
+    color: #8D979E;
+    border: 0.05rem solid #DCE4D3;
+}
