@@ -14,5 +14,7 @@
     bottom: clamp(14px, 2vw, 18px);
     left: clamp(14px, 2vw, 18px);
     color: white;
-    font-size: 24px;
+    font-size: var(--fs-nav);
+    font-weight: 400;
+    font-family: var(--font-walsheim-light);
 }
