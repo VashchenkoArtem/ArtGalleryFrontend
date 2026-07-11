@@ -1,0 +1,22 @@
+.input{
+    height: 42px;
+    width: 435px;
+    border-radius: 0.4rem;
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 1.15rem;
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+}
+.light{
+    color: #8D979E;
+    border: 0.05rem solid #E8E8E8;
+}
+.label{
+    font-size: 1.35rem; 
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+}
+.input:focus {
+    outline: 0.125rem solid var(--color-text-active);
+    outline-offset: -0.0625rem;
+}

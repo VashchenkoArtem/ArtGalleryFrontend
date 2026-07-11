@@ -1,0 +1,31 @@
+.options{
+    display: flex;
+    gap: var(--space-xs);
+    padding: 0.4rem;
+    border-radius: 123px;
+    border: 0.1rem solid #E8E8E8;
+}
+.option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 205px;
+    height: 45px;
+    border-radius: 123px;
+    text-decoration: none;
+}
+
+.title{
+    font-size: var(--fs-nav);
+    font-weight: 400;
+    font-family: var(--font-walsheim-regular);
+}
+.selectedOption{
+    background-color: rgba(227, 227, 233, 0.73);
+}
+.inactiveOptionTitle{
+    color: #A198A0;
+}
+.selectedOptionTitle{
+    color: black;
+}

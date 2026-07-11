@@ -1,13 +1,26 @@
 .pictures {
     display: flex;
-    justify-content: center;
 
-    gap: 16px;
-    overflow-x: hidden;
+    gap: var(--space-md);
+    overflow-x: auto;
     overflow-y: hidden;
+    cursor: grab;
+
+    /* прячем скроллбар визуально, но скролл (мышь/тач/колесо) остаётся рабочим */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     width: calc(100% + var(--space-xl) * 2);
     margin-left: calc(var(--space-xl) * -1);
     margin-right: calc(var(--space-xl) * -1);
+    padding-inline: var(--space-xl);
+}
+
+.pictures::-webkit-scrollbar {
+    display: none;
+}
+
+.pictures:active {
+    cursor: grabbing;
 }
 

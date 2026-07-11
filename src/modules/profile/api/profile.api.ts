@@ -4,27 +4,35 @@ import type { UpdateUserPayload } from "./profile.types";
 
 export const profileApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        me: builder.query<UserWithoutPassword, object>({
+        // было "/profile" — эндпоинта с таким путём на бекенде нет,
+        // реальный роут GET /api/profile/me (см. profile.router.ts)
+        me: builder.query<UserWithoutPassword, void>({
             query: () => ({
-                url: "/profile"
-            })
+                url: "/profile/me"
+            }),
+            providesTags: ["Profile"]
         }),
         updateUser: builder.mutation<UserWithoutPassword, UpdateUserPayload>({
             query: (userData) => {
-                const formData = new FormData
+                const formData = new FormData()
                 if (userData.name) formData.append("name", userData.name)
                 if (userData.email) formData.append("email", userData.email)
-                if (userData.avatar) formData.append("avatar", {
-                    uri: userData.avatar,
-                    name: "avatar.jpg",
-                    type: "image/jpeg"
-                } as unknown as Blob)
+                // было: объект { uri, name, type } — паттерн React Native (fetch/FormData
+                // там устроен иначе). В браузере FormData принимает готовый File
+                // напрямую из <input type="file" />.
+                if (userData.avatar) formData.append("avatar", userData.avatar)
                 return {
                     url: "/profile",
                     method: "PATCH",
                     body: formData
                 }
-            }
+            },
+            invalidatesTags: ["Profile"]
         })
     })
 })
+
+export const {
+    useMeQuery,
+    useUpdateUserMutation,
+} = profileApi;

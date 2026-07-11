@@ -10,7 +10,8 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: clamp(18px, 2vw, 24px);
-    max-width: 70vw;
+    max-width: min(70vw, 75rem);
+    width: 100%;
 }
 .title{
     font-family: var(--font-walsheim-regular);
