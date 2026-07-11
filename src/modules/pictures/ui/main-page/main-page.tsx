@@ -1,6 +1,6 @@
 import { Button } from "../../../../shared/ui/button/button";
 import { Collections } from "../../../collections/ui/collections/collections";
-import { Pictures } from "../pictures/pictures";
+import { Pictures } from "../pictures-with-scroll/pictures-with-scroll";
 import styles from "./main-page.module.css"
 
 export function MainPage(){
@@ -13,7 +13,7 @@ export function MainPage(){
                 </h1>
             </div>
             <Button text="Подивитися картини" variant="grey" fontSize="1.5rem"/>
-            <Pictures limit={10} />
+            <Pictures limit={10}/>
             <Collections/>
         </div>
     )

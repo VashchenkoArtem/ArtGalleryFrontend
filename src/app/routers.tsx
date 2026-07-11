@@ -6,6 +6,7 @@ import { ProfilePage } from "../modules/profile/ui/profile-page/profile-page";
 import { ProtectedRoute } from "../shared/ui/protected-route/protected-route";
 import { Layout } from "./layout/layout";
 import '../styles/main.css';
+import { PicturesPage } from "../modules/pictures/ui/pictures-page/pictures-page";
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
                         element: <ProfilePage />
                     }
                 ]
+            },
+            {
+                path: "pictures",
+                element: <PicturesPage/>
             }
         ]
     },
