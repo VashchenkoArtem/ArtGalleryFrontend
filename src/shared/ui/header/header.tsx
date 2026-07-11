@@ -11,7 +11,7 @@ export function Header(){
                     <NavLink className={styles.url} to = "/">Головна</NavLink>
                     <NavLink className={styles.url} to = "/pictures">Картини</NavLink>
                     <NavLink className={styles.url} to = "/about">Про художника</NavLink>
-                    <NavLink className={styles.url} to = "/login">Увійти</NavLink>
+                    <NavLink className={styles.url} to = "/profile">Профіль</NavLink>
                 </nav>
             </div>
         </div>

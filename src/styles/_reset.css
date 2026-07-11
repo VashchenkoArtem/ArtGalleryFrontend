@@ -4,16 +4,19 @@
 
 * {
   margin: 0;
+  scrollbar-width: none;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
   hanging-punctuation: first last;
+  
 }
 
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+
 }
 
 img, picture, video, canvas, svg {

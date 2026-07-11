@@ -2,10 +2,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import type { AppDispatch } from "../../../../app/store";
 import { Button } from "../../../../shared/ui/button/button";
+import { setAccessToken } from "../../../auth/model/authSlice";
 import { useLogoutMutation } from "../../../auth/api/auth.api";
+import { useMeQuery } from "../../api/profile.api";
 import { CLOUDINARY_URL } from "../../../../shared/constants/server";
 import styles from "./profile-page.module.css";
-import { setAccessToken } from "../../../auth/model/auth-slice";
 
 export function ProfilePage() {
     const dispatch = useDispatch<AppDispatch>();
@@ -47,8 +48,4 @@ export function ProfilePage() {
             </div>
         </div>
     );
-}
-
-function useMeQuery(): { data: any; isLoading: any; } {
-    throw new Error("Function not implemented.");
 }

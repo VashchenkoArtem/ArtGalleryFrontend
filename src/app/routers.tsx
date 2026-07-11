@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import { MainPage } from "../modules/pictures/ui/main-page/main-page";
 import { LoginPage } from "../modules/auth/ui/login-page/login-page";
-
+import { RegisterPage } from "../modules/auth/ui/register-page/register-page";
+import { ProfilePage } from "../modules/profile/ui/profile-page/profile-page";
 import { ProtectedRoute } from "../shared/ui/protected-route/protected-route";
 import { Layout } from "./layout/layout";
 import '../styles/main.css';
-import { RegisterPage } from "../modules/auth/ui/registration-page/registration-page";
-import { ProfilePage } from "../modules/profile/ui/profile-page/profile-page";
+import { PicturesPage } from "../modules/pictures/ui/pictures-page/pictures-page";
 
 export const router = createBrowserRouter([
     {
@@ -18,10 +18,6 @@ export const router = createBrowserRouter([
                 element: <MainPage />
             },
             {
-                path: "register",
-                element: <RegisterPage />
-            },
-            {
                 element: <ProtectedRoute />,
                 children: [
                     {
@@ -29,11 +25,19 @@ export const router = createBrowserRouter([
                         element: <ProfilePage />
                     }
                 ]
+            },
+            {
+                path: "pictures",
+                element: <PicturesPage/>
             }
         ]
     },
     {
-        path: "/login",
-        element: <LoginPage/>
-    }
+        path: "login",
+        element: <LoginPage />
+    },
+    {
+        path: "registration",
+        element: <RegisterPage />
+    },
 ]);

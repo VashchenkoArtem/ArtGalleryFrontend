@@ -1,7 +1,8 @@
 .page {
-    display: flex;
-    justify-content: center;
-    padding: var(--page-padding);
+    min-height: 100dvh;
+    width: 100%;
+    background-color: #DFDFDF;
+    overflow-y: hidden;
 }
 
 .card {
@@ -9,51 +10,53 @@
     flex-direction: column;
     gap: var(--space-md);
     width: 100%;
-    max-width: 24rem;
-    padding: var(--space-lg);
-    border-radius: var(--space-sm);
-    background-color: var(--color-bg-card);
+    height: 100dvh;
+    max-width: 35rem;
+    padding: 5rem 4rem;
+    background-color: white;
+    overflow-y: auto;
 }
 
-.title {
-    text-align: center;
+.greetingFrame {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+}
+.greetingTitle{
     font-family: var(--font-walsheim-regular);
-    color: var(--color-bg-header);
-    font-size: var(--fs-card-caption);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 1rem + 0.8vw, 2rem);
+    color: #3A3F43;
 }
-
+.greetingSubTitle{
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+    font-size: var(--fs-gallery-caption);
+    color: #A198A0;
+}
 .form {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
 }
-
-.field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3xs);
+.button{
+    width: 100%;
+    background-color: #34492C;
+    border-radius: var(--space-xs);
+    padding-bottom: var(--space-2xs);
+    padding-top: var(--space-2xs);
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+}
+.button:hover{
+    cursor: pointer;
 }
 
-.label {
-    font-family: var(--font-footer);
-    font-size: var(--fs-footer);
-    color: var(--color-text-primary);
-}
 
-.input {
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--space-3xs);
-    border: 0.0625rem solid #c1c1c1;
-    font-family: var(--font-footer);
-    font-size: 1rem;
-    background-color: var(--color-bg);
-    color: var(--color-text-primary);
-}
 
-.input:focus {
-    outline: 0.125rem solid var(--color-text-active);
-    outline-offset: -0.0625rem;
-}
 
 .error {
     font-family: var(--font-footer);
@@ -79,14 +82,17 @@
 }
 
 .switchText {
+    font-family: var(--font-walsheim-regular);
     text-align: center;
     font-family: var(--font-footer);
-    font-size: var(--fs-footer);
+    font-size: var(--fs-profile-btn);
     color: var(--color-text-primary);
+    font-weight: 400;
 }
 
 .switchLink {
+    font-family: var(--font-walsheim-regular);
     color: var(--color-text-active);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
 }

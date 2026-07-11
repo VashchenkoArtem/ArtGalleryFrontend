@@ -1,6 +1,8 @@
-export interface InputProps{
-    variant: "light" | "dark"
-    width: string;
+export interface InputProps {
+    variant: "light" | "dark";
     placeholderText: string;
-    inputType: "text" | "email" | "password"
+    label: string;
+    // validationSchema: yup.AnySchema;
+    // error: string;
+    inputType: "text" | "password" | "email";
 }
