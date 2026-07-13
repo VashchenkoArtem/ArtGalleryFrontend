@@ -11,4 +11,17 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-md);
+    width: 100%;
+}
+.picturesToolbar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 1rem;
+}
+.emptyState {
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+    color: var(--color-text-primary);
+    padding: var(--space-xl) 0;
 }

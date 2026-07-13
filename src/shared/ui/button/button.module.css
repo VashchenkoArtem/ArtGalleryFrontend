@@ -6,7 +6,7 @@
     font-family: var(--font-walsheim-regular);
     font-weight: 400;
 }
-.button:hover{
+.grey:hover{
     cursor: pointer;
     background-color: #3d4144;
     color: #bbbeab;

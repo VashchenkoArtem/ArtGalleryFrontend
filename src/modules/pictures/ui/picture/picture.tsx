@@ -7,7 +7,9 @@ export function Picture(props: PictureProps){
     return (
         <div className={`${styles.picture} ${isPicturePage ? styles.picturePage : undefined}`}>
             <img className={styles.pictureImage} src={`${CLOUDINARY_URL}/${picture.image}`}/>
-            <h4 className={styles.pictureTitle}>{picture.title}</h4>
+            { isPicturePage && (
+                <h4 className={styles.pictureTitle}>{picture.title}</h4>
+            )}
         </div>
     )
 }

@@ -1,11 +1,17 @@
 .filterContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
     position: sticky;
+    top: var(--space-md);
     background-color: rgba(255, 255, 255, 0.6);
-    width: 5vw;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    height: 100%;
     padding: var(--space-md);
+    align-self: stretch;
+}
+.filterContainerOpen {
+    width: auto;
 }
 .buttonMenu{
     all: unset;
@@ -17,4 +23,92 @@
 }
 .open{
     transition: 500ms;
+}
+
+.filterPanel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    width: 14rem;
+    margin-top: var(--space-md);
+    background-color: white;
+    border-radius: 0.4rem;
+    padding: var(--space-sm);
+}
+
+.filterSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    border-bottom: 1px solid #a7a7a6;
+    padding-bottom: var(--space-sm);
+}
+.filterSection:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.filterSectionHeader {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 100%;
+}
+.filterSectionHeader h2 {
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+    font-size: 1rem;
+    color: #a7a7a6;
+}
+
+.chevron {
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid #a7a7a6;
+    border-bottom: 2px solid #a7a7a6;
+    transform: rotate(45deg);
+    transition: transform 200ms;
+}
+.chevronOpen {
+    transform: rotate(225deg);
+}
+
+.filterOptions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    padding-top: var(--space-3xs);
+}
+
+.filterOption {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+    font-size: 0.8125rem;
+    color: var(--color-text-active);
+    cursor: pointer;
+}
+
+.filterOption input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #a7a7a6;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+}
+.filterOption input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background-color: #a7a7a6;
 }

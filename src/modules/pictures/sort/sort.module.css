@@ -1,0 +1,74 @@
+.sortContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+}
+
+.sortLabel {
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+}
+
+.sortButton {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+    font-size: 1rem;
+    color: rgba(43, 59, 30, 0.54);
+    border-bottom: 1px solid rgba(43, 59, 30, 0.54);
+    padding-bottom: 2px;
+}
+
+.chevron {
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid rgba(43, 59, 30, 0.54);
+    border-bottom: 1.5px solid rgba(43, 59, 30, 0.54);
+    transform: rotate(45deg);
+    margin-top: -4px;
+    transition: transform 200ms;
+}
+.chevronOpen {
+    transform: rotate(225deg);
+    margin-top: 2px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: var(--space-3xs);
+    background: white;
+    border-radius: 0.4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    min-width: 10rem;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.dropdownOption {
+    all: unset;
+    cursor: pointer;
+    padding: var(--space-2xs) var(--space-sm);
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+}
+.dropdownOption:hover {
+    background-color: var(--color-bg);
+}
+.dropdownOptionActive {
+    color: var(--color-text-active);
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+}
