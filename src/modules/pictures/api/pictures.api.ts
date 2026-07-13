@@ -1,10 +1,10 @@
 import { baseApi } from "../../../shared/api/baseApi";
 import type { Picture } from "../../../shared/types/pictures";
-import type { CreatePicturePayload, PaginationData, PictureWithComments, SpecificPicturePayload } from "./pictures.types";
+import type { CreatePicturePayload, PaginationData, PicturesResponse, PictureWithComments, SpecificPicturePayload } from "./pictures.types";
 
 export const picturesApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getPictures: builder.query<Picture[], PaginationData>({
+        getPictures: builder.query<PicturesResponse, PaginationData>({
             query: ({limit, page}) => {
                 const params = new URLSearchParams()
                 if (limit){
@@ -46,5 +46,6 @@ export const picturesApi = baseApi.injectEndpoints({
 
 export const {
     useGetPicturesQuery,
+    useLazyGetPicturesQuery,
     useCreatePictureMutation
 } = picturesApi;

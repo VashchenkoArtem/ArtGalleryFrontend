@@ -1,7 +1,7 @@
 .picture {
-    flex: 0 0 clamp(9.5rem, 18vw, 12.5rem);
+    break-inside: avoid;
+    margin-bottom: var(--space-md);
 }
-
 .pictureImage {
     width: 100%;
     height: auto;
@@ -13,4 +13,12 @@
     font-size: var(--fs-gallery-caption);
     font-weight: 300;
     color: var(--color-text-dark);
+}
+.picturePage {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.picturePage:hover {
+    transform: scale(0.95);
 }

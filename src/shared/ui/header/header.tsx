@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom"
 import HeaderLogo from "../../../assets/header-logo.png"
 import styles from "./header.module.css"
+import { Link } from "../link/link"
 
 export function Header(){
     return (
@@ -8,10 +8,9 @@ export function Header(){
             <div className={styles.header}>
                 <img className={styles.headerLogo} src={HeaderLogo} alt="" />
                 <nav className={styles.navUrls}>
-                    <NavLink className={styles.url} to = "/">Головна</NavLink>
-                    <NavLink className={styles.url} to = "/pictures">Картини</NavLink>
-                    <NavLink className={styles.url} to = "/about">Про художника</NavLink>
-                    <NavLink className={styles.url} to = "/profile">Профіль</NavLink>
+                    <Link href = "/" text="Головна"/>
+                    <Link href = "/pictures" text="Картини"/>
+                    <Link href = "/profile" text="Профіль"/>
                 </nav>
             </div>
         </div>

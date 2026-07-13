@@ -1,0 +1,37 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pageButton,
+.activePage {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 123px;
+    cursor: pointer;
+    color: black;
+    background: none;
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+    font-size: var(--fs-profile-btn);
+}
+
+.activePage {
+    background: white;
+    color: rgba(0, 0, 0, 0.5)
+}
+.pageButton:hover{
+    background-color: rgb(157, 157, 157);
+    color: rgba(0, 0, 0, 0.7)
+}
+.arrow {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+}

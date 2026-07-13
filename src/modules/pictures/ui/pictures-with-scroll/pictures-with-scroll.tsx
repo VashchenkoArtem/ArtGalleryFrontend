@@ -7,11 +7,11 @@ import styles from "./pictures-with-scroll.module.css"
 
 export function Pictures(props: PicturesProps) {
     const { limit } = props;
-    const { data: pictures } = useGetPicturesQuery({ limit });
+    const { data } = useGetPicturesQuery({ limit });
 
     const containerRef = useRef<HTMLDivElement>(null);
-    const displayPictures = pictures
-    ? [...pictures, ...pictures]
+    const displayPictures = data?.pictures
+    ? [...data?.pictures, ...data?.pictures]
     : [];
 
     // ставим автоскролл на паузу, пока пользователь наводит курсор
@@ -25,7 +25,7 @@ export function Pictures(props: PicturesProps) {
 
     useEffect(() => {
         const container = containerRef.current;
-        if (!container || !pictures?.length) return;
+        if (!container || !data?.pictures.length) return;
 
         let animationId: number;
 
@@ -48,7 +48,7 @@ export function Pictures(props: PicturesProps) {
         animationId = requestAnimationFrame(animate);
 
         return () => cancelAnimationFrame(animationId);
-    }, [pictures, isPaused]);
+    }, [data?.pictures, isPaused]);
 
     const handlePointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
         const container = containerRef.current;

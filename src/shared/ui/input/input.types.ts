@@ -4,5 +4,5 @@ export interface InputProps {
     label: string;
     // validationSchema: yup.AnySchema;
     // error: string;
-    inputType: "text" | "password" | "email";
+    inputType: "text" | "password" | "email" | "radio";
 }

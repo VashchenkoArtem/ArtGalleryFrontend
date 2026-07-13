@@ -1,0 +1,10 @@
+.url{
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-size: var(--fs-nav);
+    font-family: var(--font-walsheim-regular);
+}
+.active{
+    color: #C1A168;
+    text-decoration: underline;
+}

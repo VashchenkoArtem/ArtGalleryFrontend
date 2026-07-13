@@ -1,0 +1,4 @@
+.pictures {
+    column-count: 5;
+    column-gap: var(--space-md);
+}

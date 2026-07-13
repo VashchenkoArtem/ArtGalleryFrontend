@@ -26,3 +26,11 @@ export type PictureWithComments = Picture & {
         }
     }
 }
+
+export interface PicturesResponse {
+    pictures: Picture[];
+    page: number;
+    limit: number;
+    picturesCount: number;
+    totalPages: number
+}

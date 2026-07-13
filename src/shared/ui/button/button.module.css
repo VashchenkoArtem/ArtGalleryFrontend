@@ -8,6 +8,8 @@
 }
 .button:hover{
     cursor: pointer;
+    background-color: #3d4144;
+    color: #bbbeab;
 }
 .button:disabled{
     opacity: 0.6;
