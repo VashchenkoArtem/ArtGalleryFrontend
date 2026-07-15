@@ -24,13 +24,10 @@ export const picturesApi = baseApi.injectEndpoints({
                 formData.append("title", pictureData.title)
                 formData.append("collectionId", String(pictureData.collectionId))
                 formData.append("orientation", pictureData.orientation)
-                formData.append("image", {
-                    uri: pictureData.image,
-                    name: "image.jpg",
-                    type: "image/jpeg"
-                } as unknown as Blob)
+                formData.append("image", pictureData.image[0] as File);
+                console.log(pictureData.image[0])
                 return {
-                    url: "/picture",
+                    url: "/pictures",
                     method: "POST",
                     body: formData
                 }

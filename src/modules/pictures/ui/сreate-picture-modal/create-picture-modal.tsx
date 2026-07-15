@@ -1,16 +1,34 @@
+import { useForm } from "react-hook-form"
 import { Button } from "../../../../shared/ui/button/button"
+import { useGetCollectionsQuery } from "../../../collections/api/collections.api"
 import styles from "./create-picture-modal.module.css"
-import type { CreatePictureModalProps } from "./create-picture-modal.types"
+import type { CreatePictureFormData, CreatePictureModalProps } from "./create-picture-modal.types"
+import { useCreatePictureMutation } from "../../api/pictures.api"
 
 export function CreatePictureModal(props: CreatePictureModalProps) {
+    const { data: collections } = useGetCollectionsQuery()
+    const [ createPicture ] = useCreatePictureMutation()
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<CreatePictureFormData>();
     const { isOpen, closeModal } = props
+    const onSubmit = async (data: CreatePictureFormData) => {
+        try{
+            await createPicture(data)
+            await closeModal()
+        }catch (error){
+            console.log(error)
+        }
+    }
     if (!isOpen) return null
     return (    
         <div className={styles.overlay}>
-            <div className={styles.modal}>
+            <form className={styles.modal} onSubmit={handleSubmit(onSubmit)}>
                 <h2 className={styles.title}>Створити нову картину</h2>
 
-                <div className={styles.form}>
+                <div className={styles.form} >
                     <div className={styles.field}>
                         <label className={styles.label} htmlFor="picture-title">
                             Назва картини:
@@ -21,6 +39,10 @@ export function CreatePictureModal(props: CreatePictureModalProps) {
                                 type="text"
                                 className={styles.textInput}
                                 placeholder="Введіть назву"
+                                {...register("title", {
+                                    required: true,
+                                    maxLength: 35
+                                })}
                             />
                         </div>
                     </div>
@@ -29,13 +51,16 @@ export function CreatePictureModal(props: CreatePictureModalProps) {
                         <label className={styles.label} htmlFor="picture-file">
                             Файл картини:
                         </label>
-                        <label className={styles.inputBox} htmlFor="picture-file">
+                        <label className={`${styles.inputBox} ${styles.cursor}`} htmlFor="picture-file">
                             <span className={styles.placeholderLight}>Вибрати файл...</span>
                             <input
                                 id="picture-file"
                                 type="file"
                                 accept="image/*"
                                 className={styles.fileInput}
+                                {...register("image", {
+                                    required: true
+                                })}
                             />
                         </label>
                     </div>
@@ -45,15 +70,11 @@ export function CreatePictureModal(props: CreatePictureModalProps) {
                             Коллекція:
                         </label>
                         <div className={`${styles.inputBox} ${styles.selectBox}`}>
-                            <select id="picture-collection" className={styles.select} defaultValue="">
+                            <select id="picture-collection" className={styles.select} defaultValue="" {...register("collectionId", { required: true })}>
                                 <option value="" disabled hidden>
                                     Вибрати коллекцію...
                                 </option>
-                                <option className={styles.option} value="flowers">Квіти</option>
-                                <option className={styles.option} value="landscapes">Пейзажі</option>
-                                <option className={styles.option} value="summer">Літо</option>
-                                <option className={styles.option} value="winter">Зима</option>
-                                <option className={styles.option} value="still-life">Натюрморт</option>
+                                { collections?.map((collection) => <option key = {collection.id} className={styles.option} value={collection.id}>{collection.title}</option>)}
                             </select>
                             <span className={styles.selectArrow} />
                         </div>
@@ -66,10 +87,15 @@ export function CreatePictureModal(props: CreatePictureModalProps) {
                             <label className={styles.radioOption}>
                                 <input
                                     type="radio"
-                                    name="orientation"
+                                    
                                     value="vertical"
                                     className={styles.radioInput}
                                     defaultChecked
+                                    {...register("orientation", 
+                                        {
+                                            required: true
+                                        }
+                                    )}
                                 />
                                 <span className={`${styles.orientationIcon} ${styles.orientationIconVertical}`} />
                                 Вертикальна
@@ -94,10 +120,10 @@ export function CreatePictureModal(props: CreatePictureModalProps) {
                         variant="yellow"
                         text="Зберегти"
                         fontSize="1.5rem"
-                        onClick={closeModal}
+                        type="submit"
                     />
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

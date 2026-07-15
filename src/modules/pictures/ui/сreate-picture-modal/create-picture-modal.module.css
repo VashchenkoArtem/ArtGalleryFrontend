@@ -70,9 +70,11 @@
     background-color: var(--modal-input-bg);
     border: 1px solid var(--modal-accent);
     border-radius: 0.625rem;
-    cursor: pointer;
 }
+.cursor{
+    cursor: pointer;
 
+}
 .textInput {
     all: unset;
     width: 100%;

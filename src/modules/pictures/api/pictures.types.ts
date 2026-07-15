@@ -9,7 +9,7 @@ export interface CreatePicturePayload {
     title: string;
     collectionId: number;
     orientation: "horizontal" | "vertical",
-    image: string
+    image: FileList
 }
 
 export interface SpecificPicturePayload {

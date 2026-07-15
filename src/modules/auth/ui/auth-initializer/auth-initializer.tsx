@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../../../app/store";
 import { useRefreshTokenMutation } from "../../api/auth.api";
 import { setAccessToken, setAuthChecked } from "../../model/authSlice";
+import { useMeQuery } from "../../../profile/api/profile.api";
 
 interface AuthInitializerProps {
     children: ReactNode;
@@ -12,7 +13,9 @@ interface AuthInitializerProps {
 export function AuthInitializer({ children }: AuthInitializerProps) {
     const dispatch = useDispatch<AppDispatch>();
     const [refreshToken] = useRefreshTokenMutation();
-
+    const { data: user } = useMeQuery(undefined, {
+        pollingInterval: 3000
+    })
     useEffect(() => {
         refreshToken()
             .unwrap()
