@@ -16,7 +16,8 @@ export const picturesApi = baseApi.injectEndpoints({
                 return {
                     url: `/pictures?${params.toString()}`
                 }
-            }
+            },
+            providesTags: ["Pictures"]
         }),
         createPicture: builder.mutation<Picture, CreatePicturePayload>({
             query: (pictureData) => {
@@ -25,17 +26,17 @@ export const picturesApi = baseApi.injectEndpoints({
                 formData.append("collectionId", String(pictureData.collectionId))
                 formData.append("orientation", pictureData.orientation)
                 formData.append("image", pictureData.image[0] as File);
-                console.log(pictureData.image[0])
                 return {
                     url: "/pictures",
                     method: "POST",
                     body: formData
                 }
-            }
+            },
+            invalidatesTags: ["Pictures"]
         }),
         getPictureByIdWithComments: builder.query<PictureWithComments, SpecificPicturePayload>({
             query: ({ pictureId }) => ({
-                url: `/picture/${pictureId}`
+                url: `/pictures/${pictureId}`
             })
         })
     }),
@@ -44,5 +45,6 @@ export const picturesApi = baseApi.injectEndpoints({
 export const {
     useGetPicturesQuery,
     useLazyGetPicturesQuery,
-    useCreatePictureMutation
+    useCreatePictureMutation,
+    useGetPictureByIdWithCommentsQuery
 } = picturesApi;

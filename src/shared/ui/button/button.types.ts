@@ -4,5 +4,6 @@ export interface ButtonProps{
     fontSize: string;
     type?: "button" | "submit";
     disabled?: boolean;
+    isLoading?: boolean;
     onClick?: () => void;
 }

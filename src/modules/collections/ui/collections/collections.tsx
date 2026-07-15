@@ -4,7 +4,7 @@ import styles from "./collections.module.css"
 
 
 export function Collections(){
-    const { data: collections } = useGetCollectionsQuery({})
+    const { data: collections } = useGetCollectionsQuery()
     if (!collections) return null
     return (
         <div className={styles.collectionsContainer}>

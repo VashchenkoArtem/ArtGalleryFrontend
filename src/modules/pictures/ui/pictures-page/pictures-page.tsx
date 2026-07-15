@@ -7,8 +7,8 @@ import styles from "./pictures-page.module.css"
 import { Filter } from "../filter/filter";
 import { Pagination } from "../pagination/pagination";
 import type { OrientationFilter } from "../filter/filter.types";
-import type { SortOption } from "../../sort/sort.types";
-import { Sort } from "../../sort/sort";
+import type { SortOption } from "../sort/sort.types";
+import { Sort } from "../sort/sort";
 import { useMeQuery } from "../../../profile/api/profile.api";
 import { Button } from "../../../../shared/ui/button/button";
 import { CreatePictureModal } from "../сreate-picture-modal/create-picture-modal";
@@ -40,7 +40,7 @@ export function PicturesPage() {
         page: 1,
         limit: ALL_PICTURES_LIMIT,
     });
-    const { data: collections } = useGetCollectionsQuery({});
+    const { data: collections } = useGetCollectionsQuery();
 
     const filteredAndSortedPictures = useMemo(() => {
         if (!data) return [];

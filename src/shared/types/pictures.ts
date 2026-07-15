@@ -5,3 +5,11 @@ export interface Picture {
     collectionId: number;
     orientation: "horizontal" | "vertical"
 }
+export type PictureComment = {
+    id: number,
+    content: string,
+    user: {
+        id: number,
+        name: string
+    }
+}

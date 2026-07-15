@@ -4,9 +4,11 @@
     --modal-accent-text: #3a3f43;
     --modal-input-bg: rgba(0, 0, 0, 0.45);
     --modal-placeholder: #737373;
+    --modal-error: #ff8a80;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.32);
     z-index: 100;
+    cursor: pointer;
 }
 
 .modal {
@@ -27,6 +29,26 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
+    cursor: default;
+}
+
+.closeButton {
+    all: unset;
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--color-text-light);
+    cursor: pointer;
+    padding: var(--space-3xs);
+}
+.closeButton:hover {
+    color: var(--modal-accent);
+}
+.closeButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 .title {
@@ -70,10 +92,32 @@
     background-color: var(--modal-input-bg);
     border: 1px solid var(--modal-accent);
     border-radius: 0.625rem;
+    gap: var(--space-xs);
+    transition: border-color 150ms;
+}
+.inputBoxInvalid {
+    border-color: var(--modal-error);
 }
 .cursor{
     cursor: pointer;
 
+}
+.errorMessage {
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--modal-error);
+}
+.serverError {
+    text-align: center;
+    width: 100%;
+}
+.filePreview {
+    width: 1.75rem;
+    height: 1.75rem;
+    object-fit: cover;
+    border-radius: 0.35rem;
+    flex-shrink: 0;
 }
 .textInput {
     all: unset;
@@ -92,6 +136,10 @@
     font-weight: 400;
     font-size: 1rem;
     color: var(--color-text-light);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
 }
 
 .fileInput {

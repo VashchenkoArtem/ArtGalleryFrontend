@@ -1,4 +1,4 @@
-import type { Picture } from "../../../shared/types/pictures";
+import type { Picture, PictureComment } from "../../../shared/types/pictures";
 
 export interface PaginationData {
     limit?: number;
@@ -17,14 +17,7 @@ export interface SpecificPicturePayload {
 }
 
 export type PictureWithComments = Picture & {
-    comments: {
-        id: number,
-        content: string,
-        user: {
-            id: number,
-            name: string
-        }
-    }
+    comments: PictureComment[]
 }
 
 export interface PicturesResponse {

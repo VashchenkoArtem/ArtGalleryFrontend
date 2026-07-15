@@ -7,6 +7,7 @@ import { ProtectedRoute } from "../shared/ui/protected-route/protected-route";
 import { Layout } from "./layout/layout";
 import '../styles/main.css';
 import { PicturesPage } from "../modules/pictures/ui/pictures-page/pictures-page";
+import { DetailPicturePage } from "../modules/pictures/ui/detail-picture-page/detail-picture-page";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
             {
                 path: "pictures",
                 element: <PicturesPage/>
+            },
+            {
+                path: "pictures/:id",
+                element: <DetailPicturePage/>
             }
         ]
     },

@@ -1,10 +1,15 @@
 .button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3xs);
     border-radius: 123px;
     padding: var(--space-xs) var(--space-md);
     border: none;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
     font-family: var(--font-walsheim-regular);
     font-weight: 400;
+    transition: opacity 150ms, transform 150ms;
 }
 .grey:hover{
     cursor: pointer;
@@ -14,6 +19,27 @@
 .button:disabled{
     opacity: 0.6;
     cursor: not-allowed;
+}
+.button:active:not(:disabled){
+    transform: scale(0.97);
+}
+.loading{
+    cursor: wait;
+    opacity: 0.85;
+}
+.spinner{
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    opacity: 0.85;
+    animation: spin 700ms linear infinite;
+}
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
 }
 .grey{
     background-color: var(--color-button-bg);
