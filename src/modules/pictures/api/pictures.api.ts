@@ -1,5 +1,6 @@
 import { baseApi } from "../../../shared/api/baseApi";
 import type { Picture } from "../../../shared/types/pictures";
+import type { CreateCommentFormData } from "../ui/detail-picture-page/detail-picture.types";
 import type { CreatePicturePayload, PaginationData, PicturesResponse, PictureWithComments, SpecificPicturePayload } from "./pictures.types";
 
 export const picturesApi = baseApi.injectEndpoints({
@@ -37,6 +38,16 @@ export const picturesApi = baseApi.injectEndpoints({
         getPictureByIdWithComments: builder.query<PictureWithComments, SpecificPicturePayload>({
             query: ({ pictureId }) => ({
                 url: `/pictures/${pictureId}`
+            }),
+            providesTags: (_result, _error, { pictureId }) => [
+                { type: "Pictures", id: pictureId }
+            ]
+        }),
+        createComment: builder.mutation<void, CreateCommentFormData>({
+            query: (data) => ({
+                url: `/comment/${data.pictureId}`,
+                method: "POST",
+                body: {content: data.content}
             })
         })
     }),
@@ -46,5 +57,6 @@ export const {
     useGetPicturesQuery,
     useLazyGetPicturesQuery,
     useCreatePictureMutation,
-    useGetPictureByIdWithCommentsQuery
+    useGetPictureByIdWithCommentsQuery,
+    useCreateCommentMutation
 } = picturesApi;

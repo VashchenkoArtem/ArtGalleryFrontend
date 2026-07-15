@@ -24,16 +24,16 @@ export const router = createBrowserRouter([
                     {
                         path: "profile",
                         element: <ProfilePage />
+                    },
+                    {
+                        path: "pictures/:id",
+                        element: <DetailPicturePage/>
                     }
                 ]
             },
             {
                 path: "pictures",
                 element: <PicturesPage/>
-            },
-            {
-                path: "pictures/:id",
-                element: <DetailPicturePage/>
             }
         ]
     },

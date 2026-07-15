@@ -1,0 +1,38 @@
+.commentRow {
+    display: flex;
+    width: 100%;
+}
+.own {
+    justify-content: flex-end;
+}
+.other {
+    justify-content: flex-start;
+}
+
+.bubble {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    max-width: 70%;
+    padding: var(--space-2xs) var(--space-sm);
+    background-color: #efeff1;
+    border: 1px solid #e7e8ef;
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+    font-size: 1.125rem;
+    letter-spacing: 0.18px;
+    word-break: break-word;
+}
+.own .bubble {
+    border-radius: 0.625rem 0.625rem 0 0.625rem;
+}
+.other .bubble {
+    border-radius: 0.625rem 0.625rem 0.625rem 0;
+}
+
+.author {
+    color: #7e8086;
+}
+.content {
+    color: rgba(157, 159, 167, 0.9);
+}
