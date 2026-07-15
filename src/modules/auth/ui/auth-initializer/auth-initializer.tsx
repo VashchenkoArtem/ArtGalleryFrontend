@@ -13,7 +13,7 @@ interface AuthInitializerProps {
 export function AuthInitializer({ children }: AuthInitializerProps) {
     const dispatch = useDispatch<AppDispatch>();
     const [refreshToken] = useRefreshTokenMutation();
-    const { data: user } = useMeQuery(undefined, {
+    useMeQuery(undefined, {
         pollingInterval: 3000
     })
     useEffect(() => {
