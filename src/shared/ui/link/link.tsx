@@ -3,10 +3,11 @@ import styles from "./link.module.css"
 import type { LinkProps } from "./link.types";
 
 export function Link(props: LinkProps){
-    const { href, text } = props
+    const { href, text, onClick } = props
     return (
         <NavLink
             to={href}
+            onClick={onClick}
             className={({ isActive }) =>
                 isActive
                     ? `${styles.url} ${styles.active}`

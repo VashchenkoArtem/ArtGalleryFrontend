@@ -1,0 +1,246 @@
+/* Мобільний за замовчуванням (base styles), далі розширюємо через
+   min-width для планшетів/десктопа — так само, як задумано в _variables.css
+   (clamp для типографіки), тільки тут ще й міняється сама розкладка. */
+
+.status {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-2xl) var(--page-padding);
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+    font-size: var(--fs-nav);
+    color: var(--color-text-primary);
+    text-align: center;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    padding: var(--page-padding);
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    width: min(100%, 43.8125rem);
+}
+
+.avatarCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    width: 100%;
+    padding: var(--space-sm);
+    background-color: rgba(227, 227, 233, 0.73);
+    border-radius: 0.625rem;
+}
+
+.avatarWrap {
+    position: relative;
+    width: 6.5rem;
+    height: 6.5rem;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+}
+
+.avatarPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--color-button-bg);
+    color: var(--color-text-button);
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+.avatarOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+}
+.avatarOverlay .spinner {
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.hiddenFileInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.infoCard {
+    width: 100%;
+    padding: var(--space-sm);
+    background-color: rgba(227, 227, 233, 0.73);
+    border-radius: 0.625rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125rem;
+    width: 100%;
+    min-width: 0;
+}
+
+.label {
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+    font-size: 1.125rem;
+    color: #2f3924;
+}
+
+.valueBox,
+.input {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: var(--space-2xs) var(--space-sm);
+    background-color: white;
+    border: 1px solid #dce4d3;
+    border-radius: 0.4375rem;
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+    font-size: 1rem;
+    color: #8d979e;
+    display: flex;
+    align-items: center;
+    word-break: break-word;
+}
+
+.input {
+    color: var(--color-text-primary);
+    transition: border-color 150ms;
+}
+.input:focus {
+    outline: none;
+    border-color: var(--color-text-active);
+}
+.input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.inputInvalid {
+    border-color: #c0392b;
+}
+
+.formActions {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-sm);
+    margin-top: var(--space-3xs);
+}
+.formActions > * {
+    width: 100%;
+    justify-content: center;
+}
+
+.error {
+    font-family: var(--font-walsheim-regular);
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #c0392b;
+}
+
+.hint {
+    font-family: var(--font-walsheim-light);
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: var(--color-text-active);
+}
+
+.spinner {
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 700ms linear infinite;
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== ~480px і ширше: великі телефони в альбомній, малі планшети ===== */
+@media (min-width: 30rem) {
+    .avatarWrap {
+        width: 8rem;
+        height: 8rem;
+    }
+    .avatarPlaceholder {
+        font-size: 3rem;
+    }
+    .label {
+        font-size: 1.25rem;
+    }
+    .valueBox,
+    .input {
+        font-size: 1.0625rem;
+    }
+    .formActions {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .formActions > * {
+        width: auto;
+    }
+}
+
+/* ===== ~768px і ширше: планшети/десктоп — розкладка як у дизайні ===== */
+@media (min-width: 48rem) {
+    .content {
+        gap: var(--space-lg);
+    }
+    .avatarCard,
+    .infoCard {
+        padding: var(--space-md);
+    }
+    .avatarWrap {
+        width: 9.375rem;
+        height: 9.375rem;
+    }
+    .avatarPlaceholder {
+        font-size: 3.5rem;
+    }
+    .label {
+        font-size: 1.375rem;
+    }
+    .valueBox,
+    .input {
+        min-height: 2.625rem;
+        font-size: 1.125rem;
+        padding: var(--space-2xs) 1rem;
+    }
+}

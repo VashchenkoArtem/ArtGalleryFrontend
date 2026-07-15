@@ -3,9 +3,13 @@
 }
 .footer{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3xs) var(--space-md);
     padding: var(--space-md) var(--space-xs);
     max-width: 2440px;
+    width: 100%;
 }
 
 .footerText{
