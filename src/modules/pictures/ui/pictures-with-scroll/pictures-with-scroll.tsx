@@ -11,7 +11,7 @@ export function Pictures(props: PicturesProps) {
 
     const containerRef = useRef<HTMLDivElement>(null);
     const displayPictures = data?.pictures
-    ? [...data?.pictures, ...data?.pictures]
+    ? [...data.pictures, ...data.pictures]
     : [];
 
     // ставим автоскролл на паузу, пока пользователь наводит курсор
@@ -88,7 +88,7 @@ export function Pictures(props: PicturesProps) {
             onPointerLeave={handlePointerUp}
         >
             {displayPictures.map((picture, index) => (
-                <div key={`${picture.id}-${index}`} style={{ flexShrink: 0 }}>
+                <div key={`${picture.id}-${index}`} className={styles.pictureItem}>
                     <Picture picture={picture} />
                 </div>
             ))}

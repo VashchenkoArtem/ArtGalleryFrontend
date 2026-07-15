@@ -10,8 +10,14 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: clamp(18px, 2vw, 24px);
-    max-width: min(70vw, 75rem);
+    max-width: 100%;
     width: 100%;
+}
+
+@media (min-width: 48rem) {
+    .collections {
+        max-width: min(70vw, 75rem);
+    }
 }
 .title{
     font-family: var(--font-walsheim-regular);

@@ -9,10 +9,14 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
 
-    width: calc(100% + var(--space-xl) * 2);
-    margin-left: calc(var(--space-xl) * -1);
-    margin-right: calc(var(--space-xl) * -1);
-    padding-inline: var(--space-xl);
+    /* Було "* var(--space-xl)" — фіксовані 40px, тоді як --page-padding
+       на вузьких екранах менший (клемп аж до 16px). Через це відступ
+       "вилітав" за межі в'юпорта і з'являвся горизонтальний скрол
+       усієї сторінки на телефоні. */
+    width: calc(100% + var(--page-padding) * 2);
+    margin-left: calc(var(--page-padding) * -1);
+    margin-right: calc(var(--page-padding) * -1);
+    padding-inline: var(--page-padding);
 }
 
 .pictures::-webkit-scrollbar {
@@ -23,3 +27,21 @@
     cursor: grabbing;
 }
 
+.pictureItem {
+    flex-shrink: 0;
+    /* Без обмеження висоти велике фото могло зайняти весь екран
+       телефону по вертикалі — фіксуємо адаптивну висоту картки,
+       ширина підлаштовується під співвідношення сторін фото.
+       display:flex тут потрібен, щоб внутрішній <img height:100%>
+       коректно порахував відсоткову висоту відносно цього блока. */
+    display: flex;
+    overflow: hidden;
+    height: clamp(11rem, 28vw, 18.5rem);
+}
+
+.pictureItem img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}

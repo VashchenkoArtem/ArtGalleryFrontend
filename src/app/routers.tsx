@@ -8,6 +8,7 @@ import '../styles/main.css';
 import { PicturesPage } from "../modules/pictures/ui/pictures-page/pictures-page";
 import { DetailPicturePage } from "../modules/pictures/ui/detail-picture-page/detail-picture-page";
 import { ProfilePage } from "../modules/profile/ui/profile-page";
+import { NotFoundPage } from "../modules/not-found/ui/not-found-page/not-found-page";
 
 export const router = createBrowserRouter([
     {
@@ -45,4 +46,8 @@ export const router = createBrowserRouter([
         path: "registration",
         element: <RegisterPage />
     },
+    {
+        path: "*",
+        element: <NotFoundPage />
+    }
 ]);

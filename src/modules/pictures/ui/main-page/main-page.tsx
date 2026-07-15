@@ -9,8 +9,8 @@ export function MainPage(){
     return (
         <div className={styles.mainPage}>
             <div className={styles.greetingBlock}>
-                <h1 className={styles.greeting}>Ласкаво просимо до персональної галереї<br />
-                    Володимира Тараненка!<br/>
+                <h1 className={styles.greeting}>Ласкаво просимо до персональної галереї <br className={styles.desktopBreak} />
+                     Володимира Тараненка! <br className={styles.desktopBreak} />
                     <span className={styles.quote}>"Сучасний живопис, що надихає"</span>
                 </h1>
             </div>

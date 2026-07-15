@@ -4,6 +4,7 @@
     align-items: center;
     gap: var(--space-xl);
     padding: var(--page-padding);
+    overflow-x: hidden;
 }
 .greetingBlock {
     display: flex;
@@ -24,4 +25,16 @@
 }
 .quote{
     font-family: var(--font-accent);
+}
+
+/* На вузьких екранах жорсткі <br/> з дизайну (розраховані на широкий
+   рядок) можуть розбивати текст на незручні короткі/довгі рядки —
+   даємо тексту переноситись природно самому. */
+@media (max-width: 30rem){
+    .mainPage{
+        gap: var(--space-lg);
+    }
+    .desktopBreak{
+        display: none;
+    }
 }
