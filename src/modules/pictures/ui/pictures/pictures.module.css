@@ -1,5 +1,11 @@
 .pictures {
-    column-width: 12rem;
+    column-count: 5;
     column-gap: var(--space-md);
     width: 100%;
+}
+
+@media (max-width: 48rem){
+    .pictures {
+        column-count: 2;
+    }
 }
