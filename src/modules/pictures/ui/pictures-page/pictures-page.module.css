@@ -12,6 +12,7 @@
     align-items: center;
     gap: var(--space-md);
     width: 100%;
+    min-width: 0;
 }
 .picturesToolbar {
     display: flex;
@@ -24,4 +25,15 @@
     font-weight: 300;
     color: var(--color-text-primary);
     padding: var(--space-xl) 0;
+}
+
+/* На телефоні фільтр-сайдбар в один рядок з галереєю вже не влазить —
+   ставимо його зверху на всю ширину, повертаємо звичайний паддинг. */
+@media (max-width: 48rem){
+    .picturesPage{
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+        padding-left: var(--page-padding);
+    }
 }
