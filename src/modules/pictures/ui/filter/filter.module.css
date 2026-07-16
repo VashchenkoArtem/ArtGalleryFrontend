@@ -112,3 +112,12 @@
     border-radius: 50%;
     background-color: #a7a7a6;
 }
+@media (max-width: 48rem){
+    .filterContainer{
+        border-top-left-radius: 0.3rem;
+        border-bottom-left-radius: 0.3rem;
+    }
+    .buttonMenu{
+        rotate: 90deg;
+    }
+}

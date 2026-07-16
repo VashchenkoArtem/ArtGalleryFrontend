@@ -7,26 +7,35 @@
     margin: var(--space-xl) 0;
     padding: var(--space-xl);
 }
+.picture{
+    width: 20rem;
+    max-width: 40%;
+    height: auto;
+    max-height: 30rem;
+    object-fit: cover;
+    border-radius: 0.625rem;
+    flex-shrink: 0;
+}
 .pictureInfo{
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
     width: 100%;
+    min-width: 0;
 }
 .pictureInfoHeader{
-    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: var(--space-xl);
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
     width: 100%;
 }
 .title{
-    position: absolute;
-    left: 0px;
     font-family: var(--font-walsheim-light);
     font-weight: 300;
     font-size: var(--fs-hero-title);
+    word-break: break-word;
 }
 .commentsContainer{
     display: flex;
@@ -60,6 +69,8 @@
     width: 100%;
 }
 .input{
+    flex: 1 1 auto;
+    min-width: 0;
     background-color: rgba(251, 252, 255, 1);
     border: 0.05rem solid rgba(228, 228, 233, 1);
     border-radius: var(--space-xs);
@@ -77,6 +88,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     background-color: rgba(251, 252, 255, 1);
     border: 0.05rem solid rgba(228, 228, 233, 1);
     border-radius: 123px;
@@ -86,4 +98,27 @@
 }
 .sendButton:hover{
     background-color: rgb(231, 233, 235);
+}
+
+/* Телефон: картинка над інфоблоком, на всю ширину */
+@media (max-width: 48rem){
+    .detailPicture{
+        flex-direction: column;
+        align-items: stretch;
+        padding: var(--space-md);
+        margin: var(--space-md) 0;
+    }
+    .picture{
+        width: 100%;
+        max-width: 100%;
+        max-height: 20rem;
+    }
+    .pictureInfoHeader{
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-sm);
+    }
+    .title{
+        text-align: center;
+    }
 }
