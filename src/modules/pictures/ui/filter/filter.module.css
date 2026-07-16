@@ -125,4 +125,8 @@
         rotate: 270deg;
         transition: 500ms;
     }
+    .buttonMenu{
+        display: flex;
+        justify-content: flex-end;
+    }
 }
