@@ -1,6 +1,6 @@
 .input{
     height: 42px;
-    width: 435px;
+    width: 100%;
     border-radius: 0.4rem;
     padding: var(--space-xs) var(--space-sm);
     font-size: 1.15rem;
